@@ -1,0 +1,28 @@
+# ---- OS & editor junk ----
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+
+# ---- Node / Vite (frontend) ----
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.env.local
+frontend/.env
+frontend/npm-debug.log*
+
+# ---- .NET (backend) ----
+backend/bin/
+backend/obj/
+# User secrets / local config (keep real secrets out of Git)
+backend/appsettings.Development.json
+backend/appsettings.Local.json
+backend/*.user
+backend/*.suo
+
+# ---- Build artifacts (general) ----
+**/coverage/
+**/*.tmp
