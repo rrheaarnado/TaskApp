@@ -4,36 +4,28 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 async function http(path, options = {}) { 
 
   const res = await fetch(`${BASE_URL}${path}`, { 
-    headers: { "Content-Type": "application/json", ...(options.headers || {}) }, 
+    headers: { 
+      "Content-Type": "application/json",
+       ...(options.headers || {}) 
+      }, 
     ...options, 
-
   }); 
-
- 
 
   if (!res.ok) { 
 
     const text = await res.text(); 
-
     throw new Error(`${res.status} ${res.statusText} – ${text}`); 
-
   } 
-
- 
-
-  // Return JSON response (or null if no content) 
-
-  return res.status === 204 ? null : res.json(); 
-
+  
+  return res.status === 204 ? null : res.json();  // Return JSON response (or null if no content) 
 } 
 
  
-
 export const api = { 
 
   getTasks: () => http("/api/Tasks"), 
   getTask: (id) => http(`/api/Tasks/${id}`), 
-
+  
   createTask: (task) => 
     http("/api/Tasks", { method: "POST", body: JSON.stringify(task) }), 
 

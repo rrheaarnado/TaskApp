@@ -53,7 +53,6 @@ dotnet ef database update
 ```
 
 ---
-
 ## Notes
 
 - `.gitignore` keeps build output and local config (like `node_modules/`, `bin/`, `obj/`, and `appsettings.Development.json`) out of Git.  

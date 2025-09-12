@@ -16,6 +16,9 @@ namespace TaskApi.Data
         public DbSet<TaskItem> Tasks => Set<TaskItem>();
     }
 
+
+
+
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         public AppDbContext CreateDbContext(string[] args)
