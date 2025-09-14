@@ -1,0 +1,41 @@
+  version: "3.9"
+
+  services:
+    db:
+      image: mcr.microsoft.com/mssql/server:2022-latest
+      container_name: taskapp-db
+      ports:
+        - "1433:1433"
+      environment:
+        SA_PASSWORD: "YourStrong!Passw0rd"
+        ACCEPT_EULA: "Y"
+      volumes:
+        - sql_data:/var/opt/mssql
+    
+    backend:
+      build: ./backend
+      container_name: taskapp-backend
+      env_file:
+        - ./backend/.env
+      ports: 
+        - "5096:5096"
+      depends_on:
+        - db
+      restart: on-failure   
+
+    frontend:
+      build: ./frontend
+      ports:
+        - "5173:5173"
+      depends_on:
+        - backend
+
+  volumes:
+    sql_data:
+
+#docker compose up --build -d
+#docker compose down -v
+
+#enter sql cmd for sql queries
+#sqlcmd -S localhost,1433 -U SA -P "YourStrong!Passw0rd"
+#SELECT name FROM sys.databases;

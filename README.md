@@ -7,6 +7,7 @@ A learning project built to practice **full-stack development** using:
 - **Database:** SQL Server Express / LocalDB
 
 ---
+
 ## Repository Structure
 
 ```
@@ -18,11 +19,14 @@ TaskApp/
 ```
 
 ---
+
 ## How to Run
 
 ### Backend (API)
 
 ```bash
+add package Microsoft.EntityFrameworkCore.SqlServer
+add package Microsoft.EntityFrameworkCore.Tools  --formigrations
 cd backend
 dotnet restore
 dotnet run
@@ -35,6 +39,7 @@ Default URL: **http://localhost:5004**
 ### Frontend (React)
 
 ```bash
+create env variable
 cd frontend
 npm install
 npm run dev
@@ -53,10 +58,11 @@ dotnet ef database update
 ```
 
 ---
+
 ## Notes
 
-- `.gitignore` keeps build output and local config (like `node_modules/`, `bin/`, `obj/`, and `appsettings.Development.json`) out of Git.  
-- Use **Conventional Commits** style:  
-  - `feat:` new features  
-  - `fix:` bug fixes  
-  - `chore:` setup/maintenance  
+- `.gitignore` keeps build output and local config (like `node_modules/`, `bin/`, `obj/`, and `appsettings.Development.json`) out of Git.
+- Use **Conventional Commits** style:
+  - `feat:` new features
+  - `fix:` bug fixes
+  - `chore:` setup/maintenance
